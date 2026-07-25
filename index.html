@@ -106,7 +106,7 @@
 
         const uiTranslations = {
             en: {
-                title: "Accounts Policy & Types",
+                title: "Banking Fundamentals & Services",
                 subtitle: "Interactive Banking Mindmap",
                 langText: "Switch to বাংলা",
                 inst1: "Click nodes to expand/collapse",
@@ -114,7 +114,7 @@
                 reset: "Reset View"
             },
             bn: {
-                title: "অ্যাকাউন্ট নীতি ও ধরন",
+                title: "ব্যাংকিং মৌলিক ধারণা ও পরিষেবা",
                 subtitle: "ইন্টারেক্টিভ ব্যাংকিং মাইন্ডম্যাপ",
                 langText: "Switch to English",
                 inst1: "প্রসারিত/সঙ্কুচিত করতে নোডগুলিতে ক্লিক করুন",
@@ -124,236 +124,390 @@
         };
 
         const treeData = {
-            name: { en: "Accounts Policy", bn: "অ্যাকাউন্ট নীতি" },
+            name: { en: "Banking Fundamentals & Services", bn: "ব্যাংকিং মৌলিক ধারণা ও পরিষেবা" },
             children: [
                 {
-                    name: { en: "Personal A/c (Individuals & Savings)", bn: "ব্যক্তিগত অ্যাকাউন্ট (ব্যক্তি ও সঞ্চয়)" },
+                    name: { en: "Introduction & Mission", bn: "ভূমিকা এবং লক্ষ্য" },
                     children: [
-                        {
-                            name: { en: "Savings A/c - Single Holder", bn: "সেভিংস অ্যাকাউন্ট - একক অ্যাকাউন্টধারী" },
+                        { 
+                            name: { en: "Origin of 'Bank'", bn: "'ব্যাংক' শব্দের উৎস" },
                             children: [
-                                { 
-                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                    children: [
-                                        { name: { en: "Safe place for future savings with extra benefits", bn: "অতিরিক্ত সুবিধাসহ ভবিষ্যতের সঞ্চয়ের জন্য নিরাপদ স্থান" } },
-                                        { name: { en: "Interest depends on balance, varies by bank", bn: "সুদের হার ব্যালেন্সের উপর নির্ভর করে, ব্যাংক অনুযায়ী ভিন্ন হয়" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                    children: [
-                                        { name: { en: "Aadhar Card", bn: "আধার কার্ড" } },
-                                        { name: { en: "PAN Card", bn: "প্যান কার্ড" } },
-                                        { name: { en: "Recent Passport Size Colour Photo", bn: "সাম্প্রতিক পাসপোর্ট সাইজ রঙিন ছবি" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Features & Benefits", bn: "বৈশিষ্ট্য এবং সুবিধা" }, 
-                                    children: [
-                                        { name: { en: "Pass Book", bn: "পাসবুক" } },
-                                        { name: { en: "Cheque Book", bn: "চেক বই" } },
-                                        { name: { en: "ATM cum Debit Card", bn: "এটিএম কাম ডেবিট কার্ড" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                    children: [
-                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                        { name: { en: "Deposit: Account Holder & Any One", bn: "জমা: অ্যাকাউন্টধারী এবং যে কেউ" } },
-                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
-                                    ] 
-                                }
+                                { name: { en: "Italian 'Banca': The bunch of money", bn: "ইতালীয় 'Banca': টাকার গুচ্ছ" } },
+                                { name: { en: "French 'Banque': The money management system", bn: "ফরাসি 'Banque': অর্থ ব্যবস্থাপনা ব্যবস্থা" } }
                             ]
                         },
-                        {
-                            name: { en: "Savings A/c - Joint Holder", bn: "সেভিংস অ্যাকাউন্ট - যৌথ অ্যাকাউন্টধারী" },
+                        { 
+                            name: { en: "Principle Practice", bn: "মূল অনুশীলন" },
                             children: [
-                                { 
-                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                    children: [
-                                        { name: { en: "Opened by two or more individuals", bn: "দুই বা ততোধিক ব্যক্তি দ্বারা খোলা হয়" } },
-                                        { name: { en: "Commonly opened by close relatives (e.g., married couples)", bn: "সাধারণত নিকটাত্মীয়দের দ্বারা খোলা হয় (যেমন, বিবাহিত দম্পতি)" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                    children: [
-                                        { name: { en: "Aadhar Card, PAN Card, Colour Photo for all", bn: "সবার জন্য আধার কার্ড, প্যান কার্ড, রঙিন ছবি" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Features & Benefits", bn: "বৈশিষ্ট্য এবং সুবিধা" }, 
-                                    children: [
-                                        { name: { en: "Pass Book, Cheque Book, ATM cum Debit Card", bn: "পাসবুক, চেক বই, এটিএম কাম ডেবিট কার্ড" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                    children: [
-                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                        { name: { en: "Deposit: Account Holder & Any One", bn: "জমা: অ্যাকাউন্টধারী এবং যে কেউ" } },
-                                        { name: { en: "Withdraw: First Holder (A), Any One (A or B), or Both", bn: "উত্তোলন: প্রথম ধারক (A), যেকোন একজন (A বা B), বা উভয়ই" } }
-                                    ] 
-                                }
+                                { name: { en: "Financial intermediary accepting deposits & lending", bn: "আমানত গ্রহণ এবং ঋণ প্রদানের আর্থিক মধ্যস্থতাকারী" } },
+                                { name: { en: "Intermediates between surplus funds & needy borrowers", bn: "অতিরিক্ত তহবিল এবং ঋণগ্রহীতাদের মধ্যে মধ্যস্থতা করে" } }
                             ]
                         },
-                        {
-                            name: { en: "Student Savings A/c", bn: "স্টুডেন্ট সেভিংস অ্যাকাউন্ট" },
+                        { 
+                            name: { en: "Principle Mission", bn: "প্রধান লক্ষ্য" },
                             children: [
-                                { 
-                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                    children: [
-                                        { name: { en: "For students aged 12 to 18 years for educational expenses", bn: "শিক্ষাগত খরচের জন্য ১২ থেকে ১৮ বছর বয়সী শিক্ষার্থীদের জন্য" } },
-                                        { name: { en: "Scholarships & government aids can be credited", bn: "স্কলারশিপ এবং সরকারি সাহায্য জমা করা যেতে পারে" } },
-                                        { name: { en: "Converts to General Savings A/c after 18 years", bn: "১৮ বছর পর সাধারণ সেভিংস অ্যাকাউন্টে রূপান্তরিত হয়" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                    children: [
-                                        { name: { en: "Age Proof (Birth Certificate)", bn: "বয়সের প্রমাণ (জন্ম সনদ)" } },
-                                        { name: { en: "Address Proof (Aadhar Card)", bn: "ঠিকানার প্রমাণ (আধার কার্ড)" } },
-                                        { name: { en: "Schooling Certificate & Photo", bn: "স্কুলিং সনদ এবং ছবি" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                    children: [
-                                        { name: { en: "Opening Balance: Always '0' Balance", bn: "খোলার ব্যালেন্স: সর্বদা '০' (জিরো) ব্যালেন্স" } },
-                                        { name: { en: "Deposit: Organization, Account Holder, Any One", bn: "জমা: সংস্থা, অ্যাকাউন্টধারী, যে কেউ" } },
-                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
-                                    ] 
-                                }
+                                { name: { en: "Financial backbone for economic development", bn: "অর্থনৈতিক উন্নয়নের জন্য আর্থিক মেরুদণ্ড" } },
+                                { name: { en: "Financial upliftment of the country", bn: "দেশের আর্থিক উন্নতি" } }
                             ]
-                        },
-                        {
-                            name: { en: "Senior Citizen Savings A/c", bn: "প্রবীণ নাগরিক সেভিংস অ্যাকাউন্ট" },
-                            children: [
-                                { 
-                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                    children: [
-                                        { name: { en: "For customers above 60 years of age", bn: "৬০ বছরের বেশি বয়সী গ্রাহকদের জন্য" } },
-                                        { name: { en: "Benefits & interest rates mirror General Savings", bn: "সুবিধা এবং সুদের হার সাধারণ সেভিংসের মতোই" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                    children: [
-                                        { name: { en: "Opening Balance: Less Opening Balance Required", bn: "খোলার ব্যালেন্স: কম খোলার ব্যালেন্স প্রয়োজন" } },
-                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
-                                    ] 
-                                }
-                            ]
-                        },
-                        {
-                            name: { en: "NRI Savings A/c", bn: "এনআরআই সেভিংস অ্যাকাউন্ট" },
-                            children: [
-                                { 
-                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                    children: [
-                                        { name: { en: "For Non-Resident Indians (NRI) or Person of Indian Origin", bn: "অনাবাসী ভারতীয় (NRI) বা ভারতীয় বংশোদ্ভূত ব্যক্তির জন্য" } },
-                                        { name: { en: "Allows foreign branch transactions per current currency rate", bn: "বর্তমান মুদ্রার হার অনুযায়ী বিদেশী শাখায় লেনদেনের অনুমতি দেয়" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                    children: [
-                                        { name: { en: "Aadhar, PAN, Colour Photo", bn: "আধার, প্যান, রঙিন ছবি" } },
-                                        { name: { en: "Int. ID Proof: Passport & VISA", bn: "আন্তর্জাতিক আইডির প্রমাণ: পাসপোর্ট এবং ভিসা" } }
-                                    ] 
-                                }
-                            ]
-                        },
-                        {
-                            name: { en: "Demat A/c", bn: "ডিম্যাট অ্যাকাউন্ট" },
-                            children: [
-                                { 
-                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                    children: [
-                                        { name: { en: "Holds shares and securities in electronic (Dematerialised) format", bn: "ইলেকট্রনিক (ডিম্যাটেরিয়ালাইজড) ফরম্যাটে শেয়ার এবং সিকিউরিটিজ ধারণ করে" } },
-                                        { name: { en: "Facilitates easy online trading and investing", bn: "সহজে অনলাইন ট্রেডিং এবং বিনিয়োগের সুবিধা দেয়" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                    children: [
-                                        { name: { en: "Aadhar Card, PAN Card, Colour Photo", bn: "আধার কার্ড, প্যান কার্ড, রঙিন ছবি" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                    children: [
-                                        { name: { en: "Deposit: Organization, Account Holder, Any One", bn: "জমা: সংস্থা, অ্যাকাউন্টধারী, যে কেউ" } },
-                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
-                                    ] 
-                                }
-                            ]
-                        },
-                        { name: { en: "Salary A/c - For Job Holder", bn: "বেতন অ্যাকাউন্ট - চাকরিজীবীদের জন্য" } },
-                        { name: { en: "Pension A/c - For Retired Holder", bn: "পেনশন অ্যাকাউন্ট - অবসরপ্রাপ্তদের জন্য" } }
+                        }
                     ]
                 },
                 {
-                    name: { en: "Current A/c (Organization & Institution)", bn: "কারেন্ট অ্যাকাউন্ট (সংস্থা ও প্রতিষ্ঠান)" },
+                    name: { en: "Types of Banks in India (RBI)", bn: "ভারতে ব্যাংকের ধরন (আরবিআই)" },
                     children: [
                         {
-                            name: { en: "Current A/c Summary", bn: "কারেন্ট অ্যাকাউন্টের সারাংশ" },
+                            name: { en: "Commercial Banks", bn: "বাণিজ্যিক ব্যাংক" },
                             children: [
-                                { name: { en: "Used mainly for business purposes and institutions", bn: "প্রধানত ব্যবসার উদ্দেশ্যে এবং প্রতিষ্ঠানের জন্য ব্যবহৃত হয়" } },
-                                { name: { en: "No limitation for daily & yearly transactions", bn: "দৈনিক এবং বার্ষিক লেনদেনের কোনো সীমা নেই" } },
-                                { name: { en: "Most liquid deposits, never used for investment", bn: "সর্বাধিক তরল আমানত, বিনিয়োগের জন্য কখনই ব্যবহৃত হয় না" } },
-                                { name: { en: "No interest is paid by banks", bn: "ব্যাংক দ্বারা কোনো সুদ প্রদান করা হয় না" } },
-                                { name: { en: "Cash Credit or Overdraft facilities provided", bn: "ক্যাশ ক্রেডিট বা ওভারড্রাফ্ট সুবিধা প্রদান করা হয়" } }
+                                { name: { en: "Public Sector (Nationalize): SBI, BOI, Indian Bank, UCO, PNB", bn: "সরকারি খাত (জাতীয়করণকৃত): এসবিআই, বিওআই, ইন্ডিয়ান ব্যাংক, ইউকো, পিএনবি" } },
+                                { name: { en: "Private Sector: HDFC, ICICI, Axis, IndusInd, Kotak Mahindra", bn: "বেসরকারি খাত: এইচডিএফসি, আইসিআইসিআই, অ্যাক্সিস, ইন্ডাসইন্ড, কোটাক મહિન્દ્રા" } },
+                                { name: { en: "Foreign Banks: Citi Bank, Barclays, HSBC, Sonali", bn: "বিদেশী ব্যাংক: সিটি ব্যাংক, বার্কলেস, এইচএসবিসি, সোনালী" } }
                             ]
                         },
                         {
-                            name: { en: "Account Types", bn: "অ্যাকাউন্টের ধরন" },
+                            name: { en: "Cooperative Banks", bn: "সমবায় ব্যাংক" },
                             children: [
-                                { name: { en: "Business (Proprietorship & Partnership)", bn: "ব্যবসা (মালিকানা এবং অংশীদারি)" } },
-                                { name: { en: "Companies (Public/Private/LLP)", bn: "কোম্পানি (পাবলিক/প্রাইভেট/এলএলপি)" } },
-                                { name: { en: "Co-operative, Association, Society, Trust", bn: "সমবায়, সমিতি, সোসাইটি, ট্রাস্ট" } },
-                                { name: { en: "Section-8 Co., Sangho, Club", bn: "সেকশন-৮ কোম্পানি, সংঘ, ক্লাব" } }
+                                { name: { en: "Urban Cooperative Banks", bn: "শহুরে সমবায় ব্যাংক" } },
+                                { name: { en: "Rural Cooperative Banks", bn: "গ্রামীণ সমবায় ব্যাংক" } }
+                            ]
+                        },
+                        { name: { en: "Regional Rural Bank: State Gramin Bank", bn: "আঞ্চলিক গ্রামীণ ব্যাংক: স্টেট গ্রামীণ ব্যাংক" } },
+                        {
+                            name: { en: "Specialized Banks (Development)", bn: "বিশেষায়িত ব্যাংক (উন্নয়ন)" },
+                            children: [
+                                { name: { en: "SIDBI: Small Industries Development", bn: "এসআইডিবিআই: ক্ষুদ্র শিল্প উন্নয়ন" } },
+                                { name: { en: "NABARD: Agricultural & Rural Development", bn: "নাবার্ড: কৃষি ও গ্রামীণ উন্নয়ন" } },
+                                { name: { en: "EXIM Bank: Export & Import", bn: "এক্সিম ব্যাংক: আমদানি ও রপ্তানি" } },
+                                { name: { en: "NHB: National Housing Bank", bn: "এনএইচবি: জাতীয় গৃহায়ন ব্যাংক" } }
+                            ]
+                        },
+                        { name: { en: "Small Finance Banks: Ujjivan, Jana, Utkarsh, AU", bn: "ক্ষুদ্র অর্থায়ন ব্যাংক: উজ্জীবন, জানা, উৎকর্ষ, এউ" } },
+                        { name: { en: "Payment Banks: Airtel, Indian Post, NSDL, Paytm, Jio, Fino", bn: "পেমেন্ট ব্যাংক: এয়ারটেল, ইন্ডিয়া পোস্ট, এনএসডিএল, পেটিএম, জিও, ফিনো" } }
+                    ]
+                },
+                {
+                    name: { en: "Liability Product Services", bn: "দায়ের পণ্য সেবাসমূহ" },
+                    children: [
+                        {
+                            name: { en: "Investment Policy (Money earns money)", bn: "বিনিয়োগ নীতি (অর্থ অর্থ উপার্জন করে)" },
+                            children: [
+                                { name: { en: "FD - Fixed Deposit", bn: "এফডি - ফিক্সড ডিপোজিট" } },
+                                { name: { en: "RD - Recurring Deposit", bn: "আরডি - রেকারিং ডিপোজিট" } }
                             ]
                         },
                         {
-                            name: { en: "Required Business Licenses", bn: "প্রয়োজনীয় ব্যবসার লাইসেন্স" },
+                            name: { en: "Accounts Policy (Daily Transactions)", bn: "অ্যাকাউন্ট নীতি (দৈনিক লেনদেন)" },
                             children: [
-                                { 
-                                    name: { en: "Proprietorship (State Govt.)", bn: "মালিকানা ব্যবসা (রাজ্য সরকার)" }, 
+                                {
+                                    name: { en: "Personal A/c (Individuals & Savings)", bn: "ব্যক্তিগত অ্যাকাউন্ট (ব্যক্তি ও সঞ্চয়)" },
                                     children: [
-                                        { name: { en: "Trade License from Panchayat/Municipality/Corporation", bn: "পঞ্চায়েত/পৌরসভা/কর্পোরেশন থেকে ট্রেড লাইসেন্স" } },
-                                        { name: { en: "Business PAN Card & Proprietor KYC Must", bn: "বিজনেস প্যান কার্ড এবং মালিকের কেওয়াইসি আবশ্যক" } }
-                                    ] 
+                                        {
+                                            name: { en: "Savings A/c - Single Holder", bn: "সেভিংস অ্যাকাউন্ট - একক অ্যাকাউন্টধারী" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Summary", bn: "সারাংশ" }, 
+                                                    children: [
+                                                        { name: { en: "Safe place for future savings with extra benefits", bn: "অতিরিক্ত সুবিধাসহ ভবিষ্যতের সঞ্চয়ের জন্য নিরাপদ স্থান" } },
+                                                        { name: { en: "Interest depends on balance, varies by bank", bn: "সুদের হার ব্যালেন্সের উপর নির্ভর করে, ব্যাংক অনুযায়ী ভিন্ন হয়" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
+                                                    children: [
+                                                        { name: { en: "Aadhar Card, PAN Card, Recent Passport Colour Photo", bn: "আধার কার্ড, প্যান কার্ড, সাম্প্রতিক পাসপোর্ট রঙিন ছবি" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Features & Benefits", bn: "বৈশিষ্ট্য এবং সুবিধা" }, 
+                                                    children: [
+                                                        { name: { en: "Pass Book, Cheque Book, ATM cum Debit Card", bn: "পাসবুক, চেক বই, এটিএম কাম ডেবিট কার্ড" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
+                                                    children: [
+                                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
+                                                        { name: { en: "Deposit: Account Holder & Any One", bn: "জমা: অ্যাকাউন্টধারী এবং যে কেউ" } },
+                                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Savings A/c - Joint Holder", bn: "সেভিংস অ্যাকাউন্ট - যৌথ অ্যাকাউন্টধারী" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Summary", bn: "সারাংশ" }, 
+                                                    children: [
+                                                        { name: { en: "Opened by two or more individuals (often close relatives)", bn: "দুই বা ততোধিক ব্যক্তি দ্বারা খোলা হয় (সাধারণত নিকটাত্মীয়)" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
+                                                    children: [
+                                                        { name: { en: "Aadhar, PAN, Colour Photo for all", bn: "সবার জন্য আধার, প্যান, রঙিন ছবি" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Features & Benefits", bn: "বৈশিষ্ট্য এবং সুবিধা" }, 
+                                                    children: [
+                                                        { name: { en: "Pass Book, Cheque Book, ATM cum Debit Card", bn: "পাসবুক, চেক বই, এটিএম কাম ডেবিট কার্ড" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
+                                                    children: [
+                                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
+                                                        { name: { en: "Deposit: Account Holder & Any One", bn: "জমা: অ্যাকাউন্টধারী এবং যে কেউ" } },
+                                                        { name: { en: "Withdraw: First Holder (A), Any One (A or B), or Both (A&B)", bn: "উত্তোলন: প্রথম ধারক (A), যেকোন একজন (A বা B), বা উভয়ই (A&B)" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Student Savings A/c", bn: "স্টুডেন্ট সেভিংস অ্যাকাউন্ট" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Summary", bn: "সারাংশ" }, 
+                                                    children: [
+                                                        { name: { en: "For students aged 12 to 18 to meet educational expenses", bn: "শিক্ষাগত খরচের জন্য ১২ থেকে ১৮ বছর বয়সী শিক্ষার্থীদের জন্য" } },
+                                                        { name: { en: "Scholarships & government aids can be credited", bn: "বৃত্তি এবং সরকারি সাহায্য জমা করা যেতে পারে" } },
+                                                        { name: { en: "Converts to General Savings A/c after 18 years", bn: "১৮ বছর পর সাধারণ সেভিংস অ্যাকাউন্টে রূপান্তরিত হয়" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
+                                                    children: [
+                                                        { name: { en: "Age Proof (Birth Certificate), Address Proof (Aadhar)", bn: "বয়সের প্রমাণ (জন্ম সনদ), ঠিকানার প্রমাণ (আধার)" } },
+                                                        { name: { en: "Schooling Certificate & Recent Photo", bn: "স্কুলিং সনদ এবং সাম্প্রতিক ছবি" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
+                                                    children: [
+                                                        { name: { en: "Opening Balance: Always '0' Balance", bn: "খোলার ব্যালেন্স: সর্বদা '০' ব্যালেন্স" } },
+                                                        { name: { en: "Deposit: Organization, Account Holder, Any One", bn: "জমা: সংস্থা, অ্যাকাউন্টধারী, যে কেউ" } },
+                                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Senior Citizen Savings A/c", bn: "প্রবীণ নাগরিক সেভিংস অ্যাকাউন্ট" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Summary", bn: "সারাংশ" }, 
+                                                    children: [
+                                                        { name: { en: "For customers above 60 years of age", bn: "৬০ বছরের বেশি বয়সী গ্রাহকদের জন্য" } },
+                                                        { name: { en: "Same interest & benefits as General Savings", bn: "সাধারণ সেভিংসের মতোই সুদ ও সুবিধা" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
+                                                    children: [
+                                                        { name: { en: "Aadhar, PAN, Colour Photo", bn: "আধার, প্যান, রঙিন ছবি" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
+                                                    children: [
+                                                        { name: { en: "Opening Balance: Less Opening Balance Required", bn: "খোলার ব্যালেন্স: কম খোলার ব্যালেন্স প্রয়োজন" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "NRI Savings A/c", bn: "এনআরআই সেভিংস অ্যাকাউন্ট" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Summary", bn: "সারাংশ" }, 
+                                                    children: [
+                                                        { name: { en: "For Non-Resident Indians (NRI) or Person of Indian Origin", bn: "অনাবাসী ভারতীয় (NRI) বা ভারতীয় বংশোদ্ভূত ব্যক্তির জন্য" } },
+                                                        { name: { en: "Deposits/Withdrawals from foreign branch as per currency rate", bn: "মুদ্রার হার অনুযায়ী বিদেশী শাখা থেকে জমা/উত্তোলন" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
+                                                    children: [
+                                                        { name: { en: "Aadhar, PAN, Colour Photo", bn: "আধার, প্যান, রঙিন ছবি" } },
+                                                        { name: { en: "Int. ID Proof: Passport & VISA", bn: "আন্তর্জাতিক আইডির প্রমাণ: পাসপোর্ট এবং ভিসা" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Demat A/c", bn: "ডিম্যাট অ্যাকাউন্ট" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Summary", bn: "সারাংশ" }, 
+                                                    children: [
+                                                        { name: { en: "Holds shares and securities in electronic (Dematerialised) format", bn: "ইলেকট্রনিক ফরম্যাটে শেয়ার এবং সিকিউরিটিজ ধারণ করে" } },
+                                                        { name: { en: "Facilitates easy online trading and investing", bn: "সহজ অনলাইন ট্রেডিং এবং বিনিয়োগের সুবিধা দেয়" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
+                                                    children: [
+                                                        { name: { en: "Aadhar Card, PAN Card, Colour Photo", bn: "আধার কার্ড, প্যান কার্ড, রঙিন ছবি" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
+                                                    children: [
+                                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
+                                                        { name: { en: "Deposit: Organization, Account Holder, Any One", bn: "জমা: সংস্থা, অ্যাকাউন্টধারী, যে কেউ" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        { name: { en: "Salary A/c - For Job Holder", bn: "বেতন অ্যাকাউন্ট - চাকরিজীবীদের জন্য" } },
+                                        { name: { en: "Pension A/c - For Retired Holder", bn: "পেনশন অ্যাকাউন্ট - অবসরপ্রাপ্তদের জন্য" } }
+                                    ]
                                 },
-                                { 
-                                    name: { en: "Partnership (State Govt.)", bn: "অংশীদারি ব্যবসা (রাজ্য সরকার)" }, 
+                                {
+                                    name: { en: "Current A/c (Organization & Institution)", bn: "কারেন্ট অ্যাকাউন্ট (সংস্থা ও প্রতিষ্ঠান)" },
                                     children: [
-                                        { name: { en: "Partnership Deed (Min stamp duty Rs.150/-)", bn: "অংশীদারি দলিল (ন্যূনতম স্ট্যাম্প ডিউটি ১৫০ টাকা)" } },
-                                        { name: { en: "Trade License from local governing bodies", bn: "স্থানীয় গভর্নিং বডি থেকে ট্রেড লাইসেন্স" } },
-                                        { name: { en: "Business PAN Card & Partners KYC Must", bn: "বিজনেস প্যান কার্ড এবং অংশীদারদের কেওয়াইসি আবশ্যক" } }
-                                    ] 
-                                },
-                                { 
-                                    name: { en: "Companies (Central Govt. Recommended)", bn: "কোম্পানি (কেন্দ্রীয় সরকার প্রস্তাবিত)" }, 
-                                    children: [
-                                        { name: { en: "Incorporation Cert. from Ministry of Corporate Affairs", bn: "কর্পোরেট বিষয়ক মন্ত্রণালয় থেকে ইনকর্পোরেশন সার্টিফিকেট" } },
-                                        { name: { en: "MOA (Memorandum) & AOA (Articles of Association)", bn: "এমওএ (মেমোরেন্ডাম) এবং এওএ (আর্টিকেলস অফ অ্যাসোসিয়েশন)" } },
-                                        { name: { en: "Trade License & Business PAN Card", bn: "ট্রেড লাইসেন্স এবং বিজনেস প্যান কার্ড" } },
-                                        { name: { en: "Directors KYC Must", bn: "পরিচালকদের কেওয়াইসি আবশ্যক" } }
-                                    ] 
+                                        {
+                                            name: { en: "Summary", bn: "সারাংশ" },
+                                            children: [
+                                                { name: { en: "Used for Business, Co-op, Trust, Society, Club, etc.", bn: "ব্যবসা, সমবায়, ট্রাস্ট, সোসাইটি, ক্লাব ইত্যাদির জন্য ব্যবহৃত হয়" } },
+                                                { name: { en: "No limitation for daily & yearly transactions", bn: "দৈনিক এবং বার্ষিক লেনদেনের কোনো সীমা নেই" } },
+                                                { name: { en: "Most liquid deposits, never used for investment", bn: "সর্বাধিক তরল আমানত, বিনিয়োগের জন্য ব্যবহৃত হয় না" } },
+                                                { name: { en: "No interest is paid by banks", bn: "ব্যাংক দ্বারা কোনো সুদ প্রদান করা হয় না" } },
+                                                { name: { en: "Cash Credit or Overdraft facilities provided for interest", bn: "সুদের বিনিময়ে ক্যাশ ক্রেডিট বা ওভারড্রাফ্ট সুবিধা প্রদান করা হয়" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Required Documents (Business Licenses)", bn: "প্রয়োজনীয় নথিপত্র (ব্যবসার লাইসেন্স)" },
+                                            children: [
+                                                { 
+                                                    name: { en: "Proprietorship (Individual)", bn: "মালিকানা (ব্যক্তিগত)" }, 
+                                                    children: [
+                                                        { name: { en: "Trade License from Panchayat/Municipality/Corporation", bn: "পঞ্চায়েত/পৌরসভা/কর্পোরেশন থেকে ট্রেড লাইসেন্স" } },
+                                                        { name: { en: "Business PAN Card & Proprietor KYC Must", bn: "বিজনেস প্যান কার্ড এবং মালিকের কেওয়াইসি আবশ্যক" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Partnership Business", bn: "অংশীদারি ব্যবসা" }, 
+                                                    children: [
+                                                        { name: { en: "Partnership Deed (Min stamp duty Rs.150/-)", bn: "অংশীদারি দলিল (ন্যূনতম স্ট্যাম্প ডিউটি ১৫০ টাকা)" } },
+                                                        { name: { en: "Trade License from local governing bodies", bn: "স্থানীয় গভর্নিং বডি থেকে ট্রেড লাইসেন্স" } },
+                                                        { name: { en: "Business PAN Card & Partners KYC Must", bn: "বিজনেস প্যান কার্ড এবং অংশীদারদের কেওয়াইসি আবশ্যক" } }
+                                                    ] 
+                                                },
+                                                { 
+                                                    name: { en: "Central Govt. Recommended (Companies/LLP)", bn: "কেন্দ্রীয় সরকার প্রস্তাবিত (কোম্পানি/এলএলপি)" }, 
+                                                    children: [
+                                                        { name: { en: "Incorporation Cert. from Ministry of Corporate Affairs", bn: "কর্পোরেট বিষয়ক মন্ত্রণালয় থেকে ইনকর্পোরেশন সার্টিফিকেট" } },
+                                                        { name: { en: "MOA (Memorandum) & AOA (Articles of Association)", bn: "এমওএ (মেমোরেন্ডাম) এবং এওএ (আর্টিকেলস অফ অ্যাসোসিয়েশন)" } },
+                                                        { name: { en: "Trade License from local governing bodies", bn: "স্থানীয় গভর্নিং বডি থেকে ট্রেড লাইসেন্স" } },
+                                                        { name: { en: "Business PAN Card & Directors KYC Must", bn: "বিজনেস প্যান কার্ড এবং পরিচালকদের কেওয়াইসি আবশ্যক" } }
+                                                    ] 
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Operations & Benefits", bn: "কার্যক্রম এবং সুবিধা" },
+                                            children: [
+                                                { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
+                                                { name: { en: "Benefits: Transaction Statement, Cheque Book", bn: "সুবিধা: লেনদেনের বিবরণী, চেক বই" } },
+                                                { name: { en: "Digital: QR Code for UPI Payment, Card Swipe Machine", bn: "ডিজিটাল: ইউপিআই পেমেন্টের জন্য কিউআর কোড, কার্ড সোয়াইপ মেশিন" } },
+                                                { name: { en: "Deposit: Organization & Any One", bn: "জমা: সংস্থা এবং যে কেউ" } },
+                                                { name: { en: "Withdraw: Only Account Holder of Organization", bn: "উত্তোলন: শুধুমাত্র সংস্থার অ্যাকাউন্টধারী" } }
+                                            ]
+                                        },
+                                        { name: { en: "Co-operative, Association, Society, Trust", bn: "সমবায়, সমিতি, সোসাইটি, ট্রাস্ট" } },
+                                        { name: { en: "Section-8 Co., Sangho, Club", bn: "সেকশন-৮ কোম্পানি, সংঘ, ক্লাব" } }
+                                    ]
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    name: { en: "Assets Product Services (Loans)", bn: "সম্পদ পণ্য সেবাসমূহ (ঋণ)" },
+                    children: [
                         {
-                            name: { en: "Operations & Benefits", bn: "কার্যক্রম এবং সুবিধা" },
+                            name: { en: "Finance Policy (Golden Rules)", bn: "অর্থায়ন নীতি (সুবর্ণ নিয়ম)" },
                             children: [
-                                { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                { name: { en: "Benefits: Transaction Statement, Cheque Book", bn: "সুবিধা: লেনদেনের বিবরণী, চেক বই" } },
-                                { name: { en: "Digital: QR Code for UPI, Payment Card Swipe Machine", bn: "ডিজিটাল: ইউপিআই পেমেন্টের জন্য কিউআর কোড, পেমেন্ট কার্ড সোয়াইপ মেশিন" } },
-                                { name: { en: "Deposit: Organization & Any One", bn: "জমা: সংস্থা এবং যে কেউ" } },
-                                { name: { en: "Withdraw: Only Account Holder of Organization", bn: "উত্তোলন: শুধুমাত্র সংস্থার অ্যাকাউন্টধারী" } }
+                                {
+                                    name: { en: "Unsecured Loans", bn: "জামানতবিহীন ঋণ" },
+                                    children: [
+                                        { name: { en: "Personal Loan", bn: "ব্যক্তিগত ঋণ" } },
+                                        { name: { en: "Education Loan", bn: "শিক্ষা ঋণ" } },
+                                        { name: { en: "Consumer Loan", bn: "ভোক্তা ঋণ" } }
+                                    ]
+                                },
+                                {
+                                    name: { en: "Secured Loans (Requires collateral/mortgage)", bn: "জামানতযুক্ত ঋণ (বন্ধক প্রয়োজন)" },
+                                    children: [
+                                        { name: { en: "Gold Loan", bn: "স্বর্ণ ঋণ" } },
+                                        { name: { en: "Vehicle Loan", bn: "যানবাহন ঋণ" } },
+                                        { name: { en: "Home Loan", bn: "বাড়ি ঋণ" } },
+                                        { name: { en: "LAP - Loan Against Property", bn: "এলএপি - সম্পত্তির বিপরীতে ঋণ" } },
+                                        { name: { en: "Business Loan", bn: "ব্যবসা ঋণ" } }
+                                    ]
+                                }
                             ]
                         }
+                    ]
+                },
+                {
+                    name: { en: "Insurance Policy", bn: "বীমা নীতি" },
+                    children: [
+                        {
+                            name: { en: "Life Insurance", bn: "জীবন বীমা" },
+                            children: [
+                                { name: { en: "Only for risk coverage and savings", bn: "শুধুমাত্র ঝুঁকি কভারেজ এবং সঞ্চয়ের জন্য" } },
+                                { name: { en: "NOT a 'money earns money' policy", bn: "এটি 'অর্থ অর্থ উপার্জন করে' নীতি নয়" } }
+                            ]
+                        },
+                        {
+                            name: { en: "General Insurance (Only Risk Coverage)", bn: "সাধারণ বীমা (শুধুমাত্র ঝুঁকি কভারেজ)" },
+                            children: [
+                                { name: { en: "Vehicle & Health Insurance", bn: "যানবাহন ও স্বাস্থ্য বীমা" } },
+                                { name: { en: "Marine & Aviation Insurance", bn: "মেরিন ও এভিয়েশন বীমা" } },
+                                { name: { en: "Fire & Missing Insurance", bn: "অগ্নি ও নিখোঁজ বীমা" } },
+                                { name: { en: "Agriculture & Accidental Insurance", bn: "কৃষি ও দুর্ঘটনা বীমা" } },
+                                { name: { en: "Road & Travel Insurance", bn: "সড়ক ও ভ্রমণ বীমা" } }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: { en: "Miscellaneous / Essential Services", bn: "বিবিধ / প্রয়োজনীয় সেবাসমূহ" },
+                    children: [
+                        {
+                            name: { en: "Cards", bn: "কার্ড" },
+                            children: [
+                                { name: { en: "Credit Card", bn: "ক্রেডিট কার্ড" } },
+                                { name: { en: "ATM cum Debit Card", bn: "এটিএম কাম ডেবিট কার্ড" } }
+                            ]
+                        },
+                        {
+                            name: { en: "Cheques", bn: "চেক" },
+                            children: [
+                                { name: { en: "Personal / Individuals Cheque", bn: "ব্যক্তিগত চেক" } },
+                                { name: { en: "Bankers Cheque / Demand Draft", bn: "ব্যাঙ্কার্স চেক / ডিমান্ড ড্রাফ্ট" } }
+                            ]
+                        },
+                        {
+                            name: { en: "Net Banking", bn: "নেট ব্যাংকিং" },
+                            children: [
+                                { name: { en: "NEFT (National Electronic Funds Transfer)", bn: "এনইএফটি (জাতীয় ইলেকট্রনিক তহবিল স্থানান্তর)" } },
+                                { name: { en: "RTGS (Real Time Gross Settlement)", bn: "আরটিজিএস (রিয়েল টাইম গ্রস সেটেলমেন্ট)" } },
+                                { name: { en: "IMPS (Immediate Mobile Payment Service)", bn: "আইএমপিএস (তাৎক্ষণিক মোবাইল পেমেন্ট পরিষেবা)" } },
+                                { name: { en: "ECS (Electronic Clearing Service/System)", bn: "ইসিএস (ইলেকট্রনিক ক্লিয়ারিং পরিষেবা/সিস্টেম)" } }
+                            ]
+                        },
+                        {
+                            name: { en: "MAB Service (Merchant Acquiring)", bn: "এমএবি পরিষেবা (মার্চেন্ট অধিগ্রহণ)" },
+                            children: [
+                                { name: { en: "Payment QR Code", bn: "পেমেন্ট কিউআর কোড" } },
+                                { name: { en: "Credit & Debit Card Swipe Machine", bn: "ক্রেডিট এবং ডেবিট কার্ড সোয়াইপ মেশিন" } }
+                            ]
+                        },
+                        { name: { en: "Mobile Banking (SMS for all transactions)", bn: "মোবাইল ব্যাংকিং (সব লেনদেনের জন্য এসএমএস)" } },
+                        { name: { en: "Locker (For Safety & Security)", bn: "লকার (নিরাপত্তা ও সুরক্ষার জন্য)" } }
                     ]
                 }
             ]
