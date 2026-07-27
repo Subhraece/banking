@@ -323,6 +323,7 @@ function navigateTo(page) {
     prevEl.classList.remove('active');
     prevEl.style.transform = '';
     prevEl.style.opacity = '';
+    prevEl.style.pointerEvents = '';
   }, 350);
 
   nextEl.style.transform = direction > 0 ? 'translateX(40px)' : 'translateX(-40px)';
@@ -341,6 +342,7 @@ function navigateTo(page) {
     nextEl.style.transition = '';
     nextEl.style.transform = '';
     nextEl.style.opacity = '';
+    nextEl.style.pointerEvents = '';
   }, 400);
 
   // Update nav links
