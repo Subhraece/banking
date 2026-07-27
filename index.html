@@ -1,813 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounts Policy & Types - Interactive Mindmap</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tiro+Bangla&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow: hidden; 
-            background-color: #f8fafc; 
-        }
-        
-        body.lang-bn {
-            font-family: 'Tiro Bangla', 'Inter', serif;
-        }
-        
-        .node circle {
-            fill: #fff;
-            stroke: #2563eb; 
-            stroke-width: 2.5px;
-            cursor: pointer;
-            transition: fill 0.2s, stroke-width 0.2s;
-        }
-
-        .node circle:hover {
-            fill: #eff6ff; 
-            stroke-width: 3.5px;
-        }
-
-        .node text {
-            font-size: 14px;
-            fill: #1e293b; 
-            pointer-events: none;
-        }
-
-        .node--internal text {
-            font-weight: 600;
-        }
-
-        .text-bg {
-            fill: #ffffff;
-            fill-opacity: 1;
-            stroke: #94a3b8;
-            stroke-width: 1px;
-            pointer-events: none;
-            rx: 6px;
-            ry: 6px;
-        }
-
-        .link {
-            fill: none;
-            stroke: #cbd5e1; 
-            stroke-width: 2px;
-            stroke-linecap: round;
-        }
-        
-        #mindmap-container {
-            cursor: grab;
-        }
-        #mindmap-container:active {
-            cursor: grabbing;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Deposit Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Bengali:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="w-screen h-screen flex flex-col relative lang-en">
+<body>
 
-    <header class="absolute top-0 left-0 w-full p-4 md:p-6 flex flex-col md:flex-row justify-between items-start md:items-start pointer-events-none z-10 gap-4">
-        
-        <div class="pointer-events-auto bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-200 flex flex-col gap-4 max-w-sm">
-            <div>
-                <h1 id="ui-title" class="text-xl md:text-2xl font-bold text-slate-800">Banking Fundamentals & Services</h1>
-                <p id="ui-subtitle" class="text-sm text-slate-500 font-medium mt-1">Interactive Banking Mindmap</p>
-            </div>
-            <button id="lang-toggle-btn" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2 w-full">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                <span id="ui-lang-text">Switch to বাংলা</span>
-            </button>
+<div class="site-shell">
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <nav class="top-nav" id="topNav">
+    <div class="nav-brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        <line x1="12" y1="12" x2="12" y2="16"/>
+        <line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+      <span class="brand-name">BankCalc</span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <button class="nav-link active" data-page="calculator" id="navCalculator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
+        <span data-i18n="navCalc">Calculator</span>
+      </button>
+      <button class="nav-link" data-page="mindmap" id="navMindmap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><line x1="6" y1="6" x2="9" y2="11"/><line x1="18" y1="6" x2="15" y2="11"/><line x1="6" y1="18" x2="9" y2="13"/><line x1="18" y1="18" x2="15" y2="13"/></svg>
+        <span data-i18n="navMindmap">Mind Map</span>
+      </button>
+    </div>
+
+    <div class="nav-actions">
+      <div class="lang-pill" id="langToggle">
+        <button type="button" class="lang-btn" data-lang="bn">বাংলা</button>
+        <button type="button" class="lang-btn active" data-lang="en">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE CONTAINER ===== -->
+  <div class="page-container">
+
+    <!-- =================== PAGE: CALCULATOR =================== -->
+    <section class="page-view active" id="pageCalculator">
+      <div class="calc-app">
+
+        <!-- ── Header bar ── -->
+        <div class="calc-header-bar">
+          <div class="calc-header-brand">
+            <p class="calc-eyebrow" data-i18n="eyebrow">Bank Deposit Tool · Tutorial Edition</p>
+            <h2 class="calc-title" data-i18n="h1">FD &amp; RD Maturity &amp; Premature Calculator</h2>
+          </div>
+          <div class="mode-toggle" id="depositModeToggle">
+            <button type="button" class="mode-btn active" data-mode="FD" data-i18n="modeFD">FD (Fixed Deposit)</button>
+            <button type="button" class="mode-btn" data-mode="RD" data-i18n="modeRD">RD (Recurring Deposit)</button>
+          </div>
         </div>
-        
-        <div class="pointer-events-auto bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-200 flex flex-col gap-3 text-sm text-slate-700 font-medium max-w-xs">
-            <div class="flex items-start gap-3">
-                <span class="w-4 h-4 rounded-full border-2 border-blue-600 flex items-center justify-center bg-blue-600 mt-0.5 shrink-0"></span>
-                <span id="ui-inst-1">Click nodes to expand/collapse</span>
+
+        <!-- ── Two-panel layout ── -->
+        <div class="calc-layout">
+
+          <!-- LEFT: Inputs sidebar -->
+          <aside class="calc-sidebar" id="inputSlip">
+            <div class="sidebar-section">
+              <p class="sidebar-section-title" data-i18n="slipLabel">Deposit Details</p>
+              <p class="error-line" id="topError"></p>
+
+              <div class="sidebar-fields">
+                <div class="field">
+                  <label for="amount" id="amountLabel" data-i18n="amountLabelFD">Deposit Amount (₹)</label>
+                  <input type="number" id="amount" placeholder="e.g. 100000" min="0" step="any" inputmode="decimal">
+                </div>
+
+                <div class="field">
+                  <label for="roi" data-i18n="roiLabel">Interest Rate (ROI % p.a.)</label>
+                  <input type="number" id="roi" placeholder="e.g. 7.25" min="0" step="any" inputmode="decimal">
+                </div>
+
+                <div class="field">
+                  <label data-i18n="tenureLabel">Tenure</label>
+                  <div class="duration-row">
+                    <input type="number" id="tenureValue" placeholder="e.g. 2" min="0" step="any" inputmode="decimal">
+                    <div class="unit-toggle">
+                      <button type="button" class="unit-btn active" data-value="year" data-i18n="unitYear1">Year</button>
+                      <button type="button" class="unit-btn" data-value="month" data-i18n="unitMonth1">Month</button>
+                    </div>
+                  </div>
+                  <p class="micro-note" id="tenureNote"></p>
+                </div>
+
+                <div class="field">
+                  <label for="compounding" data-i18n="compoundingLabel">Compounding</label>
+                  <select id="compounding">
+                    <option value="4" selected data-i18n="optQuarterly">Quarterly</option>
+                    <option value="12" data-i18n="optMonthly">Monthly</option>
+                    <option value="2" data-i18n="optHalfYearly">Half-Yearly</option>
+                    <option value="1" data-i18n="optAnnually">Annually</option>
+                    <option value="simple" data-i18n="optSimple">Simple Interest</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div class="flex items-start gap-3">
-                <svg class="w-4 h-4 text-slate-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
-                <span id="ui-inst-2">Scroll to zoom, drag to pan</span>
+
+            <!-- Sidebar quick stats (filled after any calc) -->
+            <div class="sidebar-quick-stats" id="sidebarStats" hidden>
+              <p class="sidebar-section-title">Quick Summary</p>
+              <div class="qs-row"><span data-i18n="mPrincipalLabelFD" id="sqsPrincipalLabel">Principal</span><span id="sqsPrincipal">—</span></div>
+              <div class="qs-row"><span data-i18n="roiLabel" style="max-width:120px;line-height:1.3">Rate</span><span id="sqsRate">—</span></div>
+              <div class="qs-row"><span data-i18n="tenureLabel">Tenure</span><span id="sqsTenure">—</span></div>
             </div>
-            <button id="reset-btn" class="mt-1 w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg transition-colors border border-slate-300">
-                Reset View
-            </button>
-        </div>
-    </header>
+          </aside>
 
-    <main id="mindmap-container" class="flex-1 w-full h-full bg-slate-50"></main>
+          <!-- RIGHT: Result tabs -->
+          <main class="calc-body">
 
-    <script>
-        let currentLang = 'en';
+            <!-- Tab bar -->
+            <div class="result-tabs" role="tablist">
+              <button class="rtab active" data-tab="Maturity" role="tab" data-i18n="tabMaturity">Maturity</button>
+              <button class="rtab" data-tab="Premature" role="tab" data-i18n="tabPremature">Premature</button>
+              <button class="rtab" data-tab="MIS" role="tab" data-i18n="tabMIS">MIS Plan</button>
+            </div>
 
-        const uiTranslations = {
-            en: {
-                title: "Banking Fundamentals & Services",
-                subtitle: "Interactive Banking Mindmap",
-                langText: "Switch to বাংলা",
-                inst1: "Click nodes to expand/collapse",
-                inst2: "Scroll to zoom, drag to pan",
-                reset: "Reset View"
-            },
-            bn: {
-                title: "ব্যাংকিং মৌলিক ধারণা ও পরিষেবা",
-                subtitle: "ইন্টারেক্টিভ ব্যাংকিং মাইন্ডম্যাপ",
-                langText: "Switch to English",
-                inst1: "প্রসারিত/সঙ্কুচিত করতে নোডগুলিতে ক্লিক করুন",
-                inst2: "জুম করতে স্ক্রোল করুন, প্যান করতে টেনে আনুন",
-                reset: "ভিউ রিসেট করুন"
-            }
-        };
+            <!-- ── TAB: Maturity ── -->
+            <div class="rtab-panel active" id="tabMaturity" role="tabpanel">
+              <div class="tab-inner">
+                <div class="tab-intro">
+                  <div class="tab-intro-text">
+                    <h3 data-i18n="maturityH2">Return on Maturity</h3>
+                    <p data-i18n="maturityDesc">Full tenure compounded interest — paid at end of term along with principal.</p>
+                  </div>
+                  <button type="button" class="calc-btn" id="calcMaturityBtn" data-i18n="calcMaturity">Calculate Maturity</button>
+                </div>
+                <p class="error-line" id="maturityError"></p>
 
-        const treeData = {
-            name: { en: "Banking Fundamentals & Services", bn: "ব্যাংকিং মৌলিক ধারণা ও পরিষেবা" },
-            children: [
-                {
-                    name: { en: "Introduction & Mission", bn: "ভূমিকা এবং লক্ষ্য" },
-                    children: [
-                        { 
-                            name: { en: "Origin of 'Bank'", bn: "'ব্যাংক' শব্দের উৎস" },
-                            children: [
-                                { name: { en: "Italian 'Banca': The bunch of money", bn: "ইতালীয় 'Banca': টাকার গুচ্ছ" } },
-                                { name: { en: "French 'Banque': The money management system", bn: "ফরাসি 'Banque': অর্থ ব্যবস্থাপনা ব্যবস্থা" } }
-                            ]
-                        },
-                        { 
-                            name: { en: "Principle Practice", bn: "মূল অনুশীলন" },
-                            children: [
-                                { name: { en: "Financial intermediary accepting deposits & lending", bn: "আমানত গ্রহণ এবং ঋণ প্রদানের আর্থিক মধ্যস্থতাকারী" } },
-                                { name: { en: "Intermediates between surplus funds & needy borrowers", bn: "অতিরিক্ত তহবিল এবং ঋণগ্রহীতাদের মধ্যে মধ্যস্থতা করে" } }
-                            ]
-                        },
-                        { 
-                            name: { en: "Principle Mission", bn: "প্রধান লক্ষ্য" },
-                            children: [
-                                { name: { en: "Financial backbone for economic development", bn: "অর্থনৈতিক উন্নয়নের জন্য আর্থিক মেরুদণ্ড" } },
-                                { name: { en: "Financial upliftment of the country", bn: "দেশের আর্থিক উন্নতি" } }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: { en: "Types of Banks in India (RBI)", bn: "ভারতে ব্যাংকের ধরন (আরবিআই)" },
-                    children: [
-                        {
-                            name: { en: "Commercial Banks", bn: "বাণিজ্যিক ব্যাংক" },
-                            children: [
-                                { name: { en: "Public Sector (Nationalize): SBI, BOI, Indian Bank, UCO, PNB", bn: "সরকারি খাত (জাতীয়করণকৃত): এসবিআই, বিওআই, ইন্ডিয়ান ব্যাংক, ইউকো, পিএনবি" } },
-                                { name: { en: "Private Sector: HDFC, ICICI, Axis, IndusInd, Kotak Mahindra", bn: "বেসরকারি খাত: এইচডিএফসি, আইসিআইসিআই, অ্যাক্সিস, ইন্ডাসইন্ড, কোটাক મહિન્દ્રા" } },
-                                { name: { en: "Foreign Banks: Citi Bank, Barclays, HSBC, Sonali", bn: "বিদেশী ব্যাংক: সিটি ব্যাংক, বার্কলেস, এইচএসবিসি, সোনালী" } }
-                            ]
-                        },
-                        {
-                            name: { en: "Cooperative Banks", bn: "সমবায় ব্যাংক" },
-                            children: [
-                                { name: { en: "Urban Cooperative Banks", bn: "শহুরে সমবায় ব্যাংক" } },
-                                { name: { en: "Rural Cooperative Banks", bn: "গ্রামীণ সমবায় ব্যাংক" } }
-                            ]
-                        },
-                        { name: { en: "Regional Rural Bank: State Gramin Bank", bn: "আঞ্চলিক গ্রামীণ ব্যাংক: স্টেট গ্রামীণ ব্যাংক" } },
-                        {
-                            name: { en: "Specialized Banks (Development)", bn: "বিশেষায়িত ব্যাংক (উন্নয়ন)" },
-                            children: [
-                                { name: { en: "SIDBI: Small Industries Development", bn: "এসআইডিবিআই: ক্ষুদ্র শিল্প উন্নয়ন" } },
-                                { name: { en: "NABARD: Agricultural & Rural Development", bn: "নাবার্ড: কৃষি ও গ্রামীণ উন্নয়ন" } },
-                                { name: { en: "EXIM Bank: Export & Import", bn: "এক্সিম ব্যাংক: আমদানি ও রপ্তানি" } },
-                                { name: { en: "NHB: National Housing Bank", bn: "এনএইচবি: জাতীয় গৃহায়ন ব্যাংক" } }
-                            ]
-                        },
-                        { name: { en: "Small Finance Banks: Ujjivan, Jana, Utkarsh, AU", bn: "ক্ষুদ্র অর্থায়ন ব্যাংক: উজ্জীবন, জানা, উৎকর্ষ, এউ" } },
-                        { name: { en: "Payment Banks: Airtel, Indian Post, NSDL, Paytm, Jio, Fino", bn: "পেমেন্ট ব্যাংক: এয়ারটেল, ইন্ডিয়া পোস্ট, এনএসডিএল, পেটিএম, জিও, ফিনো" } }
-                    ]
-                },
-                {
-                    name: { en: "Liability Product Services", bn: "দায়ের পণ্য সেবাসমূহ" },
-                    children: [
-                        {
-                            name: { en: "Investment Policy (Money earns money)", bn: "বিনিয়োগ নীতি (অর্থ অর্থ উপার্জন করে)" },
-                            children: [
-                                { 
-                                    name: { en: "FD - Fixed Deposit", bn: "এফডি - ফিক্সড ডিপোজিট" },
-                                    children: [
-                                        {
-                                            name: { en: "Summary", bn: "সারাংশ" },
-                                            children: [
-                                                { name: { en: "Offered by Banks & NBFCs", bn: "ব্যাঙ্ক এবং এনবিএফসি দ্বারা প্রস্তাবিত" } },
-                                                { name: { en: "Deposit lump sum for specific period", bn: "নির্দিষ্ট সময়ের জন্য এককালীন জমা" } },
-                                                { name: { en: "Higher interest rate than savings accounts", bn: "সেভিংস অ্যাকাউন্টের চেয়ে বেশি সুদের হার" } },
-                                                { name: { en: "Bank returns principal + interest on maturity", bn: "ম্যাচিউরিটিতে ব্যাঙ্ক আসল + সুদ ফেরত দেয়" } },
-                                                { name: { en: "Premature closing allowed with penalty (usually 1%)", bn: "পেনাল্টি সহ সময়ের আগে বন্ধ করার অনুমতি (সাধারণত ১%)" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "How to Open", bn: "কীভাবে খুলবেন" },
-                                            children: [
-                                                { name: { en: "Requires Savings A/c in similar Bank & Branch", bn: "একই ব্যাঙ্ক ও শাখায় সেভিংস অ্যাকাউন্ট প্রয়োজন" } },
-                                                { name: { en: "KYC: Aadhar, PAN, Recent Passport Photo", bn: "কেওয়াইসি: আধার, প্যান, সাম্প্রতিক পাসপোর্ট ছবি" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Deposit Guidelines", bn: "জমা দেওয়ার নির্দেশিকা" },
-                                            children: [
-                                                { name: { en: "Minimum: Rs. 1000/-", bn: "সর্বনিম্ন: ১০০০ টাকা" } },
-                                                { name: { en: "Maximum: No Upper Limit", bn: "সর্বোচ্চ: কোনো ঊর্ধ্বসীমা নেই" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Interest Criteria", bn: "সুদের মানদণ্ড" },
-                                            children: [
-                                                { name: { en: "General (Age 18-60): Standard Interest", bn: "সাধারণ (বয়স ১৮-৬০): স্ট্যান্ডার্ড সুদ" } },
-                                                { name: { en: "Senior Citizen (Age 60+): .5% - 1% more interest", bn: "প্রবীণ নাগরিক (বয়স ৬০+): .৫% - ১% বেশি সুদ" } },
-                                                { name: { en: "Rates vary by duration (7 Days to 180+ Days)", bn: "সময়কাল অনুযায়ী হার পরিবর্তিত হয় (৭ দিন থেকে ১৮০+ দিন)" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "FD Plans", bn: "এফডি প্ল্যান" },
-                                            children: [
-                                                {
-                                                    name: { en: "Annualized Plan", bn: "বার্ষিক প্ল্যান" },
-                                                    children: [
-                                                        { name: { en: "Interest + Principal returned after maturity", bn: "ম্যাচিউরিটির পর সুদ + আসল ফেরত" } },
-                                                        { name: { en: "For >1 year, 2nd year uses Compound Interest", bn: "১ বছরের বেশি হলে, ২য় বছরে চক্রবৃদ্ধি সুদ প্রযোজ্য" } },
-                                                        { name: { en: "Benefit: Maximum Gainer", bn: "সুবিধা: সর্বাধিক লাভজনক" } }
-                                                    ]
-                                                },
-                                                {
-                                                    name: { en: "MIS Plan - Monthly Income Scheme", bn: "এমআইএস প্ল্যান - মাসিক আয় স্কিম" },
-                                                    children: [
-                                                        { name: { en: "Interest gained every month", bn: "প্রতি মাসে সুদ লাভ" } },
-                                                        { name: { en: "Interest transferred: FD A/c -> SB A/c", bn: "সুদ স্থানান্তর: এফডি অ্যাকাউন্ট -> এসবি অ্যাকাউন্ট" } },
-                                                        { name: { en: "Benefit: After term, Principal Amount Returned", bn: "সুবিধা: মেয়াদ শেষে, আসল পরিমাণ ফেরত" } }
-                                                    ]
-                                                },
-                                                {
-                                                    name: { en: "Quarterly Plan", bn: "ত্রৈমাসিক প্ল্যান" },
-                                                    children: [
-                                                        { name: { en: "Interest gained every 3 months", bn: "প্রতি ৩ মাসে সুদ লাভ" } },
-                                                        { name: { en: "Fixed Dates (Mar 30, Jun 30, Sep 30, Dec 30)", bn: "নির্দিষ্ট তারিখ (৩০ মার্চ, ৩০ জুন, ৩০ সেপ্টেম্বর, ৩০ ডিসেম্বর)" } },
-                                                        { name: { en: "Interest transferred: FD A/c -> SB A/c", bn: "সুদ স্থানান্তর: এফডি অ্যাকাউন্ট -> এসবি অ্যাকাউন্ট" } },
-                                                        { name: { en: "Benefit: After term, Principal Amount Returned", bn: "সুবিধা: মেয়াদ শেষে, আসল পরিমাণ ফেরত" } }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                { 
-                                    name: { en: "RD - Recurring Deposit", bn: "আরডি - রেকারিং ডিপোজিট" },
-                                    children: [
-                                        {
-                                            name: { en: "Summary", bn: "সারাংশ" },
-                                            children: [
-                                                { name: { en: "Deposit fixed amount every month", bn: "প্রতি মাসে একটি নির্দিষ্ট পরিমাণ জমা করুন" } },
-                                                { name: { en: "Default in payment attracts a small penalty", bn: "পেমেন্টে ডিফল্ট হলে সামান্য জরিমানা হতে পারে" } },
-                                                { name: { en: "Flexible RDs allow higher installments (e.g. 10x minimum)", bn: "নমনীয় আরডিতে বেশি কিস্তির অনুমতি দেয় (যেমন সর্বনিম্ন ১০ গুণ)" } },
-                                                { name: { en: "Funded via Standing Instructions from Saving A/c", bn: "সেভিং অ্যাকাউন্ট থেকে স্থায়ী নির্দেশনার মাধ্যমে অর্থায়ন করা হয়" } },
-                                                { name: { en: "Passbook indicates entries and maturity", bn: "পাসবুক এন্ট্রি এবং ম্যাচিউরিটি নির্দেশ করে" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "How to Open", bn: "কীভাবে খুলবেন" },
-                                            children: [
-                                                { name: { en: "Requires Savings A/c in similar Bank & Branch", bn: "একই ব্যাঙ্ক ও শাখায় সেভিংস অ্যাকাউন্ট প্রয়োজন" } },
-                                                { name: { en: "KYC: Aadhar, PAN, Recent Passport Photo", bn: "কেওয়াইসি: আধার, প্যান, সাম্প্রতিক পাসপোর্ট ছবি" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Deposit Guidelines & Duration", bn: "জমা দেওয়ার নির্দেশিকা ও সময়কাল" },
-                                            children: [
-                                                { name: { en: "Minimum Duration: 6 Months", bn: "সর্বনিম্ন সময়কাল: ৬ মাস" } },
-                                                { name: { en: "Maximum Duration: 120 Months (10yrs)", bn: "সর্বোচ্চ সময়কাল: ১২০ মাস (১০ বছর)" } },
-                                                { name: { en: "Minimum Amount: Rs. 100/-", bn: "সর্বনিম্ন পরিমাণ: ১০০ টাকা" } },
-                                                { name: { en: "Maximum Amount: No Upper Limit", bn: "সর্বোচ্চ পরিমাণ: কোনো ঊর্ধ্বসীমা নেই" } }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            name: { en: "Accounts Policy (Daily Transactions)", bn: "অ্যাকাউন্ট নীতি (দৈনিক লেনদেন)" },
-                            children: [
-                                {
-                                    name: { en: "Personal A/c (Individuals & Savings)", bn: "ব্যক্তিগত অ্যাকাউন্ট (ব্যক্তি ও সঞ্চয়)" },
-                                    children: [
-                                        {
-                                            name: { en: "Savings A/c - Single Holder", bn: "সেভিংস অ্যাকাউন্ট - একক অ্যাকাউন্টধারী" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                                    children: [
-                                                        { name: { en: "Safe place for future savings with extra benefits", bn: "অতিরিক্ত সুবিধাসহ ভবিষ্যতের সঞ্চয়ের জন্য নিরাপদ স্থান" } },
-                                                        { name: { en: "Interest depends on balance, varies by bank", bn: "সুদের হার ব্যালেন্সের উপর নির্ভর করে, ব্যাংক অনুযায়ী ভিন্ন হয়" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                                    children: [
-                                                        { name: { en: "Aadhar Card, PAN Card, Recent Passport Colour Photo", bn: "আধার কার্ড, প্যান কার্ড, সাম্প্রতিক পাসপোর্ট রঙিন ছবি" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Features & Benefits", bn: "বৈশিষ্ট্য এবং সুবিধা" }, 
-                                                    children: [
-                                                        { name: { en: "Pass Book, Cheque Book, ATM cum Debit Card", bn: "পাসবুক, চেক বই, এটিএম কাম ডেবিট কার্ড" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                                    children: [
-                                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                                        { name: { en: "Deposit: Account Holder & Any One", bn: "জমা: অ্যাকাউন্টধারী এবং যে কেউ" } },
-                                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Savings A/c - Joint Holder", bn: "সেভিংস অ্যাকাউন্ট - যৌথ অ্যাকাউন্টধারী" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                                    children: [
-                                                        { name: { en: "Opened by two or more individuals (often close relatives)", bn: "দুই বা ততোধিক ব্যক্তি দ্বারা খোলা হয় (সাধারণত নিকটাত্মীয়)" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                                    children: [
-                                                        { name: { en: "Aadhar, PAN, Colour Photo for all", bn: "সবার জন্য আধার, প্যান, রঙিন ছবি" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Features & Benefits", bn: "বৈশিষ্ট্য এবং সুবিধা" }, 
-                                                    children: [
-                                                        { name: { en: "Pass Book, Cheque Book, ATM cum Debit Card", bn: "পাসবুক, চেক বই, এটিএম কাম ডেবিট কার্ড" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                                    children: [
-                                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                                        { name: { en: "Deposit: Account Holder & Any One", bn: "জমা: অ্যাকাউন্টধারী এবং যে কেউ" } },
-                                                        { name: { en: "Withdraw: First Holder (A), Any One (A or B), or Both (A&B)", bn: "উত্তোলন: প্রথম ধারক (A), যেকোন একজন (A বা B), বা উভয়ই (A&B)" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Student Savings A/c", bn: "স্টুডেন্ট সেভিংস অ্যাকাউন্ট" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                                    children: [
-                                                        { name: { en: "For students aged 12 to 18 to meet educational expenses", bn: "শিক্ষাগত খরচের জন্য ১২ থেকে ১৮ বছর বয়সী শিক্ষার্থীদের জন্য" } },
-                                                        { name: { en: "Scholarships & government aids can be credited", bn: "বৃত্তি এবং সরকারি সাহায্য জমা করা যেতে পারে" } },
-                                                        { name: { en: "Converts to General Savings A/c after 18 years", bn: "১৮ বছর পর সাধারণ সেভিংস অ্যাকাউন্টে রূপান্তরিত হয়" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                                    children: [
-                                                        { name: { en: "Age Proof (Birth Certificate), Address Proof (Aadhar)", bn: "বয়সের প্রমাণ (জন্ম সনদ), ঠিকানার প্রমাণ (আধার)" } },
-                                                        { name: { en: "Schooling Certificate & Recent Photo", bn: "স্কুলিং সনদ এবং সাম্প্রতিক ছবি" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                                    children: [
-                                                        { name: { en: "Opening Balance: Always '0' Balance", bn: "খোলার ব্যালেন্স: সর্বদা '০' ব্যালেন্স" } },
-                                                        { name: { en: "Deposit: Organization, Account Holder, Any One", bn: "জমা: সংস্থা, অ্যাকাউন্টধারী, যে কেউ" } },
-                                                        { name: { en: "Withdraw: Only Account Holder (Ack. must)", bn: "উত্তোলন: শুধুমাত্র অ্যাকাউন্টধারী (স্বীকৃতি আবশ্যক)" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Senior Citizen Savings A/c", bn: "প্রবীণ নাগরিক সেভিংস অ্যাকাউন্ট" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                                    children: [
-                                                        { name: { en: "For customers above 60 years of age", bn: "৬০ বছরের বেশি বয়সী গ্রাহকদের জন্য" } },
-                                                        { name: { en: "Same interest & benefits as General Savings", bn: "সাধারণ সেভিংসের মতোই সুদ ও সুবিধা" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                                    children: [
-                                                        { name: { en: "Aadhar, PAN, Colour Photo", bn: "আধার, প্যান, রঙিন ছবি" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                                    children: [
-                                                        { name: { en: "Opening Balance: Less Opening Balance Required", bn: "খোলার ব্যালেন্স: কম খোলার ব্যালেন্স প্রয়োজন" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "NRI Savings A/c", bn: "এনআরআই সেভিংস অ্যাকাউন্ট" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                                    children: [
-                                                        { name: { en: "For Non-Resident Indians (NRI) or Person of Indian Origin", bn: "অনাবাসী ভারতীয় (NRI) বা ভারতীয় বংশোদ্ভূত ব্যক্তির জন্য" } },
-                                                        { name: { en: "Deposits/Withdrawals from foreign branch as per currency rate", bn: "মুদ্রার হার অনুযায়ী বিদেশী শাখা থেকে জমা/উত্তোলন" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                                    children: [
-                                                        { name: { en: "Aadhar, PAN, Colour Photo", bn: "আধার, প্যান, রঙিন ছবি" } },
-                                                        { name: { en: "Int. ID Proof: Passport & VISA", bn: "আন্তর্জাতিক আইডির প্রমাণ: পাসপোর্ট এবং ভিসা" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Demat A/c", bn: "ডিম্যাট অ্যাকাউন্ট" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Summary", bn: "সারাংশ" }, 
-                                                    children: [
-                                                        { name: { en: "Holds shares and securities in electronic (Dematerialised) format", bn: "ইলেকট্রনিক ফরম্যাটে শেয়ার এবং সিকিউরিটিজ ধারণ করে" } },
-                                                        { name: { en: "Facilitates easy online trading and investing", bn: "সহজ অনলাইন ট্রেডিং এবং বিনিয়োগের সুবিধা দেয়" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Required Documents (KYC)", bn: "প্রয়োজনীয় নথিপত্র (কেওয়াইসি)" }, 
-                                                    children: [
-                                                        { name: { en: "Aadhar Card, PAN Card, Colour Photo", bn: "আধার কার্ড, প্যান কার্ড, রঙিন ছবি" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Transaction Rules", bn: "লেনদেনের নিয়ম" }, 
-                                                    children: [
-                                                        { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                                        { name: { en: "Deposit: Organization, Account Holder, Any One", bn: "জমা: সংস্থা, অ্যাকাউন্টধারী, যে কেউ" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        { name: { en: "Salary A/c - For Job Holder", bn: "বেতন অ্যাকাউন্ট - চাকরিজীবীদের জন্য" } },
-                                        { name: { en: "Pension A/c - For Retired Holder", bn: "পেনশন অ্যাকাউন্ট - অবসরপ্রাপ্তদের জন্য" } }
-                                    ]
-                                },
-                                {
-                                    name: { en: "Current A/c (Organization & Institution)", bn: "কারেন্ট অ্যাকাউন্ট (সংস্থা ও প্রতিষ্ঠান)" },
-                                    children: [
-                                        {
-                                            name: { en: "Summary", bn: "সারাংশ" },
-                                            children: [
-                                                { name: { en: "Used for Business, Co-op, Trust, Society, Club, etc.", bn: "ব্যবসা, সমবায়, ট্রাস্ট, সোসাইটি, ক্লাব ইত্যাদির জন্য ব্যবহৃত হয়" } },
-                                                { name: { en: "No limitation for daily & yearly transactions", bn: "দৈনিক এবং বার্ষিক লেনদেনের কোনো সীমা নেই" } },
-                                                { name: { en: "Most liquid deposits, never used for investment", bn: "সর্বাধিক তরল আমানত, বিনিয়োগের জন্য ব্যবহৃত হয় ভাত" } },
-                                                { name: { en: "No interest is paid by banks", bn: "ব্যাংক দ্বারা কোনো সুদ প্রদান করা হয় না" } },
-                                                { name: { en: "Cash Credit or Overdraft facilities provided for interest", bn: "সুদের বিনিময়ে ক্যাশ ক্রেডিট বা ওভারড্রাফ্ট সুবিধা প্রদান করা হয়" } }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Required Documents (Business Licenses)", bn: "প্রয়োজনীয় নথিপত্র (ব্যবসার লাইসেন্স)" },
-                                            children: [
-                                                { 
-                                                    name: { en: "Proprietorship (Individual)", bn: "মালিকানা (ব্যক্তিগত)" }, 
-                                                    children: [
-                                                        { name: { en: "Trade License from Panchayat/Municipality/Corporation", bn: "পঞ্চায়েত/পৌরসভা/কর্পোরেশন থেকে ট্রেড লাইসেন্স" } },
-                                                        { name: { en: "Business PAN Card & Proprietor KYC Must", bn: "বিজনেস প্যান কার্ড এবং মালিকের কেওয়াইসি আবশ্যক" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Partnership Business", bn: "অংশীদারি ব্যবসা" }, 
-                                                    children: [
-                                                        { name: { en: "Partnership Deed (Min stamp duty Rs.150/-)", bn: "অংশীদারি দলিল (ন্যূনতম স্ট্যাম্প ডিউটি ১৫০ টাকা)" } },
-                                                        { name: { en: "Trade License from local governing bodies", bn: "স্থানীয় গভর্নিং বডি থেকে ট্রেড লাইসেন্স" } },
-                                                        { name: { en: "Business PAN Card & Partners KYC Must", bn: "বিজনেস প্যান কার্ড এবং অংশীদারদের কেওয়াইসি আবশ্যক" } }
-                                                    ] 
-                                                },
-                                                { 
-                                                    name: { en: "Central Govt. Recommended (Companies/LLP)", bn: "কেন্দ্রীয় সরকার প্রস্তাবিত (কোম্পানি/এলএলপি)" }, 
-                                                    children: [
-                                                        { name: { en: "Incorporation Cert. from Ministry of Corporate Affairs", bn: "কর্পোরেট বিষয়ক মন্ত্রণালয় থেকে ইনকর্পোরেশন সার্টিফিকেট" } },
-                                                        { name: { en: "MOA (Memorandum) & AOA (Articles of Association)", bn: "এমওএ (মেমোরেন্ডাম) এবং এওএ (আর্টিকেলস অফ অ্যাসোসিয়েশন)" } },
-                                                        { name: { en: "Trade License from local governing bodies", bn: "স্থানীয় গভর্নিং বডি থেকে ট্রেড লাইসেন্স" } },
-                                                        { name: { en: "Business PAN Card & Directors KYC Must", bn: "বিজনেস প্যান কার্ড এবং পরিচালকদের কেওয়াইসি আবশ্যক" } }
-                                                    ] 
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            name: { en: "Operations & Benefits", bn: "কার্যক্রম এবং সুবিধা" },
-                                            children: [
-                                                { name: { en: "Opening Balance: As per Bank/Branch/Location", bn: "খোলার ব্যালেন্স: ব্যাঙ্ক/শাখা/স্থান অনুযায়ী" } },
-                                                { name: { en: "Benefits: Transaction Statement, Cheque Book", bn: "সুবিধা: লেনদেনের বিবরণী, চেক বই" } },
-                                                { name: { en: "Digital: QR Code for UPI Payment, Card Swipe Machine", bn: "ডিজিটাল: ইউপিআই পেমেন্টের জন্য কিউআর কোড, কার্ড সোয়াইপ মেশিন" } },
-                                                { name: { en: "Deposit: Organization & Any One", bn: "জমা: সংস্থা এবং যে কেউ" } },
-                                                { name: { en: "Withdraw: Only Account Holder of Organization", bn: "উত্তোলন: শুধুমাত্র সংস্থার অ্যাকাউন্টধারী" } }
-                                            ]
-                                        },
-                                        { name: { en: "Co-operative, Association, Society, Trust", bn: "সমবায়, সমিতি, সোসাইটি, ট্রাস্ট" } },
-                                        { name: { en: "Section-8 Co., Sangho, Club", bn: "সেকশন-৮ কোম্পানি, সংঘ, ক্লাব" } }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: { en: "Assets Product Services (Loans)", bn: "সম্পদ পণ্য সেবাসমূহ (ঋণ)" },
-                    children: [
-                        {
-                            name: { en: "Finance Policy (Golden Rules)", bn: "অর্থায়ন নীতি (সুবর্ণ নিয়ম)" },
-                            children: [
-                                {
-                                    name: { en: "Unsecured Loans", bn: "জামানতবিহীন ঋণ" },
-                                    children: [
-                                        { name: { en: "Personal Loan", bn: "ব্যক্তিগত ঋণ" } },
-                                        { name: { en: "Education Loan", bn: "শিক্ষা ঋণ" } },
-                                        { name: { en: "Consumer Loan", bn: "ভোক্তা ঋণ" } }
-                                    ]
-                                },
-                                {
-                                    name: { en: "Secured Loans (Requires collateral/mortgage)", bn: "জামানতযুক্ত ঋণ (বন্ধক প্রয়োজন)" },
-                                    children: [
-                                        { name: { en: "Gold Loan", bn: "স্বর্ণ ঋণ" } },
-                                        { name: { en: "Vehicle Loan", bn: "যানবাহন ঋণ" } },
-                                        { name: { en: "Home Loan", bn: "বাড়ি ঋণ" } },
-                                        { name: { en: "LAP - Loan Against Property", bn: "এলএপি - সম্পত্তির বিপরীতে ঋণ" } },
-                                        { name: { en: "Business Loan", bn: "ব্যবসা ঋণ" } }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: { en: "Insurance Policy", bn: "বীমা নীতি" },
-                    children: [
-                        {
-                            name: { en: "Life Insurance", bn: "জীবন বীমা" },
-                            children: [
-                                { name: { en: "Only for risk coverage and savings", bn: "শুধুমাত্র ঝুঁকি কভারেজ এবং সঞ্চয়ের জন্য" } },
-                                { name: { en: "NOT a 'money earns money' policy", bn: "এটি 'অর্থ অর্থ উপার্জন করে' নীতি নয়" } }
-                            ]
-                        },
-                        {
-                            name: { en: "General Insurance (Only Risk Coverage)", bn: "সাধারণ বীমা (শুধুমাত্র ঝুঁকি কভারেজ)" },
-                            children: [
-                                { name: { en: "Vehicle & Health Insurance", bn: "যানবাহন ও স্বাস্থ্য বীমা" } },
-                                { name: { en: "Marine & Aviation Insurance", bn: "মেরিন ও এভিয়েশন বীমা" } },
-                                { name: { en: "Fire & Missing Insurance", bn: "অগ্নি ও নিখোঁজ বীমা" } },
-                                { name: { en: "Agriculture & Accidental Insurance", bn: "কৃষি ও দুর্ঘটনা বীমা" } },
-                                { name: { en: "Road & Travel Insurance", bn: "সড়ক ও ভ্রমণ বীমা" } }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: { en: "Miscellaneous / Essential Services", bn: "বিবিধ / প্রয়োজনীয় সেবাসমূহ" },
-                    children: [
-                        {
-                            name: { en: "Cards", bn: "কার্ড" },
-                            children: [
-                                { name: { en: "Credit Card", bn: "ক্রেডিট কার্ড" } },
-                                { name: { en: "ATM cum Debit Card", bn: "এটিএম কাম ডেবিট কার্ড" } }
-                            ]
-                        },
-                        {
-                            name: { en: "Cheques", bn: "চেক" },
-                            children: [
-                                { name: { en: "Personal / Individuals Cheque", bn: "ব্যক্তিগত চেক" } },
-                                { name: { en: "Bankers Cheque / Demand Draft", bn: "ব্যাঙ্কার্স চেক / ডিমান্ড ড্রাফ্ট" } }
-                            ]
-                        },
-                        {
-                            name: { en: "Net Banking", bn: "নেট ব্যাংকিং" },
-                            children: [
-                                { name: { en: "NEFT (National Electronic Funds Transfer)", bn: "এনইএফটি (জাতীয় ইলেকট্রনিক তহবিল স্থানান্তর)" } },
-                                { name: { en: "RTGS (Real Time Gross Settlement)", bn: "আরটিজিএস (রিয়েল টাইম গ্রস সেটেলমেন্ট)" } },
-                                { name: { en: "IMPS (Immediate Mobile Payment Service)", bn: "আইএমপিএস (তাৎক্ষণিক মোবাইল পেমেন্ট পরিষেবা)" } },
-                                { name: { en: "ECS (Electronic Clearing Service/System)", bn: "ইসিএস (ইলেকট্রনিক ক্লিয়ারিং পরিষেবা/সিস্টেম)" } }
-                            ]
-                        },
-                        {
-                            name: { en: "MAB Service (Merchant Acquiring)", bn: "এমএবি পরিষেবা (মার্চেন্ট অধিগ্রহণ)" },
-                            children: [
-                                { name: { en: "Payment QR Code", bn: "পেমেন্ট কিউআর কোড" } },
-                                { name: { en: "Credit & Debit Card Swipe Machine", bn: "ক্রেডিট এবং ডেবিট কার্ড সোয়াইপ মেশিন" } }
-                            ]
-                        },
-                        { name: { en: "Mobile Banking (SMS for all transactions)", bn: "মোবাইল ব্যাংকিং (সব লেনদেনের জন্য এসএমএস)" } },
-                        { name: { en: "Locker (For Safety & Security)", bn: "লকার (নিরাপত্তা ও সুরক্ষার জন্য)" } }
-                    ]
-                }
-            ]
-        };
+                <div class="result-grid" id="maturityResult" hidden>
+                  <div class="result-card hero-card">
+                    <span class="rc-label" data-i18n="mMaturityLabel">Maturity Amount</span>
+                    <span class="rc-value rc-green" id="mMaturity">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" id="mPrincipalLabel" data-i18n="mPrincipalLabelFD">Principal</span>
+                    <span class="rc-value" id="mPrincipal">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="mInterestLabel">Total Interest</span>
+                    <span class="rc-value rc-gold" id="mInterest">—</span>
+                  </div>
+                </div>
 
-        const margin = {top: 20, right: 90, bottom: 30, left: 120};
-        let width = window.innerWidth;
-        let height = window.innerHeight;
+                <div class="formula-actions" id="mFormulaActions" hidden>
+                  <button type="button" class="link-btn" id="mFormulaToggle" data-i18n="formulaToggle">Show Step-by-step Formula</button>
+                  <div class="formula-panel" id="mFormulaPanel" hidden></div>
+                </div>
+              </div>
+            </div>
 
-        const svg = d3.select("#mindmap-container").append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .attr("viewBox", `0 0 ${width} ${height}`);
+            <!-- ── TAB: Premature ── -->
+            <div class="rtab-panel" id="tabPremature" role="tabpanel">
+              <div class="tab-inner">
+                <div class="tab-intro">
+                  <div class="tab-intro-text">
+                    <h3 data-i18n="prematureH2">Premature Withdrawal</h3>
+                    <p data-i18n="prematureDesc">Break the deposit early — calculate penalty deduction and net payout.</p>
+                  </div>
+                </div>
 
-        const g = svg.append("g");
+                <!-- Extra premature inputs -->
+                <div class="premature-extra">
+                  <div class="field">
+                    <label data-i18n="withdrawLabel">Time until withdrawal</label>
+                    <div class="duration-row">
+                      <input type="number" id="withdrawValue" placeholder="e.g. 1" min="0" step="any" inputmode="decimal">
+                      <div class="unit-toggle">
+                        <button type="button" class="unit-btn active" data-value="year" data-i18n="unitYear2">Year</button>
+                        <button type="button" class="unit-btn" data-value="month" data-i18n="unitMonth2">Month</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="cardRate" data-i18n="cardRateLabel">Applicable Normal Rate (Card Rate %)</label>
+                    <input type="number" id="cardRate" placeholder="Check bank rate-card" min="0" step="any" inputmode="decimal">
+                  </div>
+                  <div class="field">
+                    <label for="penalty" data-i18n="penaltyLabel">Penalty (% deducted from Card Rate)</label>
+                    <input type="number" id="penalty" value="1" min="0" step="any" inputmode="decimal">
+                  </div>
+                </div>
 
-        const zoom = d3.zoom()
-            .scaleExtent([0.1, 3])
-            .on("zoom", (event) => {
-                g.attr("transform", event.transform);
-            });
+                <p class="hint" id="effectiveRateHint" data-i18n="effectiveRateHintPending">Applicable rate not calculated yet</p>
 
-        svg.call(zoom);
+                <button type="button" class="calc-btn" id="calcPrematureBtn" data-i18n="calcPremature">Calculate Premature Return</button>
+                <p class="error-line" id="prematureError"></p>
 
-        const centerTree = () => {
-            const transform = d3.zoomIdentity.translate(width / 5, height / 2).scale(0.85);
-            svg.transition().duration(750).call(zoom.transform, transform);
-        };
+                <div class="result-grid" id="prematureResult" hidden>
+                  <div class="result-card hero-card">
+                    <span class="rc-label" data-i18n="pNetLabel">Net Payable</span>
+                    <span class="rc-value rc-green" id="pNet">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" id="pPrincipalLabel" data-i18n="pPrincipalLabelFD">Principal</span>
+                    <span class="rc-value" id="pPrincipal">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="pHeldLabel">Held Period</span>
+                    <span class="rc-value" id="pHeld">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="pRateLabel">Applicable Rate</span>
+                    <span class="rc-value" id="pRate">—</span>
+                  </div>
+                  <div class="result-card penalty-card">
+                    <span class="rc-label" data-i18n="pPenaltyLossLabel">Loss due to Penalty</span>
+                    <span class="rc-value rc-red" id="pPenaltyLoss">—</span>
+                  </div>
+                </div>
 
-        window.addEventListener('resize', () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            svg.attr("width", width).attr("height", height)
-               .attr("viewBox", `0 0 ${width} ${height}`);
-        });
+                <div class="formula-actions" id="pFormulaActions" hidden>
+                  <button type="button" class="link-btn" id="pFormulaToggle" data-i18n="formulaToggle2">Show Step-by-step Formula</button>
+                  <div class="formula-panel" id="pFormulaPanel" hidden></div>
+                </div>
+              </div>
+            </div>
 
-        document.getElementById('reset-btn').addEventListener('click', centerTree);
+            <!-- ── TAB: MIS ── -->
+            <div class="rtab-panel" id="tabMIS" role="tabpanel">
+              <div class="tab-inner">
+                <div class="tab-intro">
+                  <div class="tab-intro-text">
+                    <h3 data-i18n="misH2">MIS — Monthly Income Scheme</h3>
+                    <p data-i18n="misDesc">Earn monthly interest payouts to your savings account. Principal is fully returned at maturity. (FD only)</p>
+                  </div>
+                  <button type="button" class="calc-btn" id="calcMISBtn" data-i18n="calcMIS">Calculate MIS Payout</button>
+                </div>
 
-        let i = 0;
-        const duration = 750;
-        let root;
+                <!-- RD notice -->
+                <div class="mis-rd-notice" id="misRdNotice" hidden>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <p data-i18n="misRdNotice">MIS plan applies to Fixed Deposits (FD) only. Please switch to FD mode.</p>
+                </div>
 
-        // Increased node spacing to accommodate long text fields from PDF summaries
-        const treemap = d3.tree().nodeSize([55, 420]); 
+                <p class="error-line" id="misError"></p>
 
-        root = d3.hierarchy(treeData, d => d.children);
-        root.x0 = 0;
-        root.y0 = 0;
+                <div class="result-grid" id="misResult" hidden>
+                  <div class="result-card hero-card">
+                    <span class="rc-label" data-i18n="misMonthlyLabel">Monthly Interest Payout</span>
+                    <span class="rc-value rc-green" id="misMonthly">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="misPrincipalLabel">Principal (returned at maturity)</span>
+                    <span class="rc-value" id="misPrincipal">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="misTenureLabel">Total Months</span>
+                    <span class="rc-value" id="misTenure">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="misTotalInterestLabel">Total Interest Earned</span>
+                    <span class="rc-value rc-gold" id="misTotalInterest">—</span>
+                  </div>
+                  <div class="result-card">
+                    <span class="rc-label" data-i18n="misTotalReceivedLabel">Total Received</span>
+                    <span class="rc-value" id="misTotalReceived">—</span>
+                  </div>
+                </div>
 
-        root.children.forEach(collapse);
+                <div class="formula-actions" id="misFormulaActions" hidden>
+                  <button type="button" class="link-btn" id="misFormulaToggle" data-i18n="misFormulaToggle">Show Step-by-step Formula</button>
+                  <div class="formula-panel" id="misFormulaPanel" hidden></div>
+                </div>
+              </div>
+            </div>
 
-        update(root);
-        centerTree();
+          </main>
+        </div><!-- .calc-layout -->
 
-        function collapse(d) {
-            if (d.children) {
-                d._children = d.children;
-                d._children.forEach(collapse);
-                d.children = null;
-            }
-        }
+        <p class="disclaimer" data-i18n="disclaimer">*"Card Rate" refers to the rate the bank offers today for the period the money was held (not your original tenure). Check the bank's rate-card, as it changes by slab. This tool assumes Effective Rate = Card Rate − Penalty%. For RD, installments are assumed at the start of each month and tenure in full months. MIS interest is calculated as simple interest per month (P × r / 12). Actual bank rules may vary — contact your branch for the final amount.</p>
 
-        function update(source) {
-            const treeData = treemap(root);
-            const nodes = treeData.descendants();
-            const links = treeData.descendants().slice(1);
+      </div><!-- .calc-app -->
+    </section><!-- #pageCalculator -->
 
-            const node = g.selectAll('g.node')
-                .data(nodes, d => d.id || (d.id = ++i));
+    <!-- =================== PAGE: MINDMAP =================== -->
+    <section class="page-view" id="pageMindmap">
+      <iframe src="interactive_mindmap.html" id="mindmapFrame" title="Interactive Banking Mindmap" frameborder="0" allow="fullscreen"></iframe>
+    </section>
 
-            const nodeEnter = node.enter().append('g')
-                .attr('class', d => `node ${d.children || d._children ? 'node--internal' : 'node--leaf'}`)
-                .attr("transform", d => `translate(${source.y0},${source.x0})`)
-                .on('click', click);
+  </div><!-- .page-container -->
+</div><!-- .site-shell -->
 
-            nodeEnter.append('rect')
-                .attr('class', 'text-bg')
-                .style("opacity", 1e-6);
-
-            nodeEnter.append('circle')
-                .attr('class', 'node')
-                .attr('r', 1e-6)
-                .style("fill", d => d._children ? "#3b82f6" : "#fff");
-
-            nodeEnter.append('text')
-                .attr("dy", ".35em")
-                .attr("x", d => d.children || d._children ? -24 : 24)
-                .attr("text-anchor", d => d.children || d._children ? "end" : "start")
-                .text(d => d.data.name[currentLang]) 
-                .style("fill-opacity", 1e-6);
-
-            const nodeUpdate = nodeEnter.merge(node);
-
-            nodeUpdate.transition()
-                .duration(duration)
-                .attr("transform", d => `translate(${d.y},${d.x})`);
-
-            nodeUpdate.select('circle.node')
-                .attr('r', 8)
-                .style("fill", d => d._children ? "#3b82f6" : "#fff")
-                .style("stroke", "#2563eb")
-                .attr('cursor', 'pointer');
-
-            nodeUpdate.select('text')
-                .text(d => d.data.name[currentLang])
-                .style("fill-opacity", 1)
-                .attr("x", d => d.children || d._children ? -24 : 24)
-                .attr("text-anchor", d => d.children || d._children ? "end" : "start")
-                .each(function(d) {
-                    d.bbox = this.getBBox(); 
-                });
-
-            nodeUpdate.select('rect.text-bg')
-                .transition().duration(duration)
-                .style("opacity", 1)
-                .attr('width', d => d.bbox.width + 20)
-                .attr('height', d => d.bbox.height + 12)
-                .attr('x', d => d.bbox.x - 10)
-                .attr('y', d => d.bbox.y - 6);
-
-            const nodeExit = node.exit().transition()
-                .duration(duration)
-                .attr("transform", d => `translate(${source.y},${source.x})`)
-                .remove();
-
-            nodeExit.select('circle').attr('r', 1e-6);
-            nodeExit.select('rect.text-bg').style('opacity', 1e-6);
-            nodeExit.select('text').style('fill-opacity', 1e-6);
-
-            const link = g.selectAll('path.link')
-                .data(links, d => d.id);
-
-            const diagonal = (s, d) => {
-                return `M ${s.y} ${s.x}
-                        C ${(s.y + d.y) / 2} ${s.x},
-                          ${(s.y + d.y) / 2} ${d.x},
-                          ${d.y} ${d.x}`;
-            };
-
-            const linkEnter = link.enter().insert('path', "g")
-                .attr("class", "link")
-                .attr('d', d => {
-                    const o = {x: source.x0, y: source.y0};
-                    return diagonal(o, o);
-                });
-
-            const linkUpdate = linkEnter.merge(link);
-
-            linkUpdate.transition()
-                .duration(duration)
-                .attr('d', d => diagonal(d, d.parent));
-
-            const linkExit = link.exit().transition()
-                .duration(duration)
-                .attr('d', d => {
-                    const o = {x: source.x, y: source.y};
-                    return diagonal(o, o);
-                })
-                .remove();
-
-            nodes.forEach(d => {
-                d.x0 = d.x;
-                d.y0 = d.y;
-            });
-        }
-
-        function click(event, d) {
-            if (d.children) {
-                d._children = d.children;
-                d.children = null;
-            } else {
-                d.children = d._children;
-                d._children = null;
-            }
-            update(d);
-            
-            if (d.children) {
-                const svgWidth = window.innerWidth;
-                const svgHeight = window.innerHeight;
-                const scale = d3.zoomTransform(svg.node()).k;
-                const x = -d.y * scale + svgWidth / 3; 
-                const y = -d.x * scale + svgHeight / 2;
-                
-                svg.transition().duration(750).call(
-                    zoom.transform, 
-                    d3.zoomIdentity.translate(x, y).scale(scale)
-                );
-            }
-        }
-
-        document.getElementById('lang-toggle-btn').addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'bn' : 'en';
-            
-            document.body.className = `w-screen h-screen flex flex-col relative lang-${currentLang}`;
-
-            document.getElementById('ui-title').innerText = uiTranslations[currentLang].title;
-            document.getElementById('ui-subtitle').innerText = uiTranslations[currentLang].subtitle;
-            document.getElementById('ui-lang-text').innerText = uiTranslations[currentLang].langText;
-            document.getElementById('ui-inst-1').innerText = uiTranslations[currentLang].inst1;
-            document.getElementById('ui-inst-2').innerText = uiTranslations[currentLang].inst2;
-            document.getElementById('reset-btn').innerText = uiTranslations[currentLang].reset;
-
-            update(root);
-        });
-
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
