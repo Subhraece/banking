@@ -43,7 +43,6 @@
             font-weight: 600;
         }
 
-        /* Solid background for highlighting texts */
         .text-bg {
             fill: #ffffff;
             fill-opacity: 1;
@@ -75,7 +74,7 @@
         
         <div class="pointer-events-auto bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-200 flex flex-col gap-4 max-w-sm">
             <div>
-                <h1 id="ui-title" class="text-xl md:text-2xl font-bold text-slate-800">Accounts Policy & Types</h1>
+                <h1 id="ui-title" class="text-xl md:text-2xl font-bold text-slate-800">Banking Fundamentals & Services</h1>
                 <p id="ui-subtitle" class="text-sm text-slate-500 font-medium mt-1">Interactive Banking Mindmap</p>
             </div>
             <button id="lang-toggle-btn" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2 w-full">
@@ -190,8 +189,104 @@
                         {
                             name: { en: "Investment Policy (Money earns money)", bn: "বিনিয়োগ নীতি (অর্থ অর্থ উপার্জন করে)" },
                             children: [
-                                { name: { en: "FD - Fixed Deposit", bn: "এফডি - ফিক্সড ডিপোজিট" } },
-                                { name: { en: "RD - Recurring Deposit", bn: "আরডি - রেকারিং ডিপোজিট" } }
+                                { 
+                                    name: { en: "FD - Fixed Deposit", bn: "এফডি - ফিক্সড ডিপোজিট" },
+                                    children: [
+                                        {
+                                            name: { en: "Summary", bn: "সারাংশ" },
+                                            children: [
+                                                { name: { en: "Offered by Banks & NBFCs", bn: "ব্যাঙ্ক এবং এনবিএফসি দ্বারা প্রস্তাবিত" } },
+                                                { name: { en: "Deposit lump sum for specific period", bn: "নির্দিষ্ট সময়ের জন্য এককালীন জমা" } },
+                                                { name: { en: "Higher interest rate than savings accounts", bn: "সেভিংস অ্যাকাউন্টের চেয়ে বেশি সুদের হার" } },
+                                                { name: { en: "Bank returns principal + interest on maturity", bn: "ম্যাচিউরিটিতে ব্যাঙ্ক আসল + সুদ ফেরত দেয়" } },
+                                                { name: { en: "Premature closing allowed with penalty (usually 1%)", bn: "পেনাল্টি সহ সময়ের আগে বন্ধ করার অনুমতি (সাধারণত ১%)" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "How to Open", bn: "কীভাবে খুলবেন" },
+                                            children: [
+                                                { name: { en: "Requires Savings A/c in similar Bank & Branch", bn: "একই ব্যাঙ্ক ও শাখায় সেভিংস অ্যাকাউন্ট প্রয়োজন" } },
+                                                { name: { en: "KYC: Aadhar, PAN, Recent Passport Photo", bn: "কেওয়াইসি: আধার, প্যান, সাম্প্রতিক পাসপোর্ট ছবি" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Deposit Guidelines", bn: "জমা দেওয়ার নির্দেশিকা" },
+                                            children: [
+                                                { name: { en: "Minimum: Rs. 1000/-", bn: "সর্বনিম্ন: ১০০০ টাকা" } },
+                                                { name: { en: "Maximum: No Upper Limit", bn: "সর্বোচ্চ: কোনো ঊর্ধ্বসীমা নেই" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Interest Criteria", bn: "সুদের মানদণ্ড" },
+                                            children: [
+                                                { name: { en: "General (Age 18-60): Standard Interest", bn: "সাধারণ (বয়স ১৮-৬০): স্ট্যান্ডার্ড সুদ" } },
+                                                { name: { en: "Senior Citizen (Age 60+): .5% - 1% more interest", bn: "প্রবীণ নাগরিক (বয়স ৬০+): .৫% - ১% বেশি সুদ" } },
+                                                { name: { en: "Rates vary by duration (7 Days to 180+ Days)", bn: "সময়কাল অনুযায়ী হার পরিবর্তিত হয় (৭ দিন থেকে ১৮০+ দিন)" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "FD Plans", bn: "এফডি প্ল্যান" },
+                                            children: [
+                                                {
+                                                    name: { en: "Annualized Plan", bn: "বার্ষিক প্ল্যান" },
+                                                    children: [
+                                                        { name: { en: "Interest + Principal returned after maturity", bn: "ম্যাচিউরিটির পর সুদ + আসল ফেরত" } },
+                                                        { name: { en: "For >1 year, 2nd year uses Compound Interest", bn: "১ বছরের বেশি হলে, ২য় বছরে চক্রবৃদ্ধি সুদ প্রযোজ্য" } },
+                                                        { name: { en: "Benefit: Maximum Gainer", bn: "সুবিধা: সর্বাধিক লাভজনক" } }
+                                                    ]
+                                                },
+                                                {
+                                                    name: { en: "MIS Plan - Monthly Income Scheme", bn: "এমআইএস প্ল্যান - মাসিক আয় স্কিম" },
+                                                    children: [
+                                                        { name: { en: "Interest gained every month", bn: "প্রতি মাসে সুদ লাভ" } },
+                                                        { name: { en: "Interest transferred: FD A/c -> SB A/c", bn: "সুদ স্থানান্তর: এফডি অ্যাকাউন্ট -> এসবি অ্যাকাউন্ট" } },
+                                                        { name: { en: "Benefit: After term, Principal Amount Returned", bn: "সুবিধা: মেয়াদ শেষে, আসল পরিমাণ ফেরত" } }
+                                                    ]
+                                                },
+                                                {
+                                                    name: { en: "Quarterly Plan", bn: "ত্রৈমাসিক প্ল্যান" },
+                                                    children: [
+                                                        { name: { en: "Interest gained every 3 months", bn: "প্রতি ৩ মাসে সুদ লাভ" } },
+                                                        { name: { en: "Fixed Dates (Mar 30, Jun 30, Sep 30, Dec 30)", bn: "নির্দিষ্ট তারিখ (৩০ মার্চ, ৩০ জুন, ৩০ সেপ্টেম্বর, ৩০ ডিসেম্বর)" } },
+                                                        { name: { en: "Interest transferred: FD A/c -> SB A/c", bn: "সুদ স্থানান্তর: এফডি অ্যাকাউন্ট -> এসবি অ্যাকাউন্ট" } },
+                                                        { name: { en: "Benefit: After term, Principal Amount Returned", bn: "সুবিধা: মেয়াদ শেষে, আসল পরিমাণ ফেরত" } }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                { 
+                                    name: { en: "RD - Recurring Deposit", bn: "আরডি - রেকারিং ডিপোজিট" },
+                                    children: [
+                                        {
+                                            name: { en: "Summary", bn: "সারাংশ" },
+                                            children: [
+                                                { name: { en: "Deposit fixed amount every month", bn: "প্রতি মাসে একটি নির্দিষ্ট পরিমাণ জমা করুন" } },
+                                                { name: { en: "Default in payment attracts a small penalty", bn: "পেমেন্টে ডিফল্ট হলে সামান্য জরিমানা হতে পারে" } },
+                                                { name: { en: "Flexible RDs allow higher installments (e.g. 10x minimum)", bn: "নমনীয় আরডিতে বেশি কিস্তির অনুমতি দেয় (যেমন সর্বনিম্ন ১০ গুণ)" } },
+                                                { name: { en: "Funded via Standing Instructions from Saving A/c", bn: "সেভিং অ্যাকাউন্ট থেকে স্থায়ী নির্দেশনার মাধ্যমে অর্থায়ন করা হয়" } },
+                                                { name: { en: "Passbook indicates entries and maturity", bn: "পাসবুক এন্ট্রি এবং ম্যাচিউরিটি নির্দেশ করে" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "How to Open", bn: "কীভাবে খুলবেন" },
+                                            children: [
+                                                { name: { en: "Requires Savings A/c in similar Bank & Branch", bn: "একই ব্যাঙ্ক ও শাখায় সেভিংস অ্যাকাউন্ট প্রয়োজন" } },
+                                                { name: { en: "KYC: Aadhar, PAN, Recent Passport Photo", bn: "কেওয়াইসি: আধার, প্যান, সাম্প্রতিক পাসপোর্ট ছবি" } }
+                                            ]
+                                        },
+                                        {
+                                            name: { en: "Deposit Guidelines & Duration", bn: "জমা দেওয়ার নির্দেশিকা ও সময়কাল" },
+                                            children: [
+                                                { name: { en: "Minimum Duration: 6 Months", bn: "সর্বনিম্ন সময়কাল: ৬ মাস" } },
+                                                { name: { en: "Maximum Duration: 120 Months (10yrs)", bn: "সর্বোচ্চ সময়কাল: ১২০ মাস (১০ বছর)" } },
+                                                { name: { en: "Minimum Amount: Rs. 100/-", bn: "সর্বনিম্ন পরিমাণ: ১০০ টাকা" } },
+                                                { name: { en: "Maximum Amount: No Upper Limit", bn: "সর্বোচ্চ পরিমাণ: কোনো ঊর্ধ্বসীমা নেই" } }
+                                            ]
+                                        }
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -371,7 +466,7 @@
                                             children: [
                                                 { name: { en: "Used for Business, Co-op, Trust, Society, Club, etc.", bn: "ব্যবসা, সমবায়, ট্রাস্ট, সোসাইটি, ক্লাব ইত্যাদির জন্য ব্যবহৃত হয়" } },
                                                 { name: { en: "No limitation for daily & yearly transactions", bn: "দৈনিক এবং বার্ষিক লেনদেনের কোনো সীমা নেই" } },
-                                                { name: { en: "Most liquid deposits, never used for investment", bn: "সর্বাধিক তরল আমানত, বিনিয়োগের জন্য ব্যবহৃত হয় না" } },
+                                                { name: { en: "Most liquid deposits, never used for investment", bn: "সর্বাধিক তরল আমানত, বিনিয়োগের জন্য ব্যবহৃত হয় ভাত" } },
                                                 { name: { en: "No interest is paid by banks", bn: "ব্যাংক দ্বারা কোনো সুদ প্রদান করা হয় না" } },
                                                 { name: { en: "Cash Credit or Overdraft facilities provided for interest", bn: "সুদের বিনিময়ে ক্যাশ ক্রেডিট বা ওভারড্রাফ্ট সুবিধা প্রদান করা হয়" } }
                                             ]
